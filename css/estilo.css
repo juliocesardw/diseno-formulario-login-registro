@@ -1,0 +1,540 @@
+:root{
+    --color-negro:#364E65;
+    --color-texto:#727C77;
+    --color-rojo:#ED0722;
+    --color-rgba-rojo:rgba(237,7,34,.21);
+    --color-rgba-celeste:rgba(55,147,246,.27);
+    --color-celeste:#3793F6;
+    --color-input:#EEF5F9;
+}
+
+.input-error{
+    border: 1px solid var(--color-rojo) !important;
+}
+/*========================================
+Estilos generales
+==========================================*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #f7f9fd;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul,ol{
+    list-style: none;
+}
+
+.contenedor-login{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    -webkit-box-align: start;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+/*========================================
+Estilos del contenedor slider
+==========================================*/
+.contenedor-slider{
+    width: calc(100% - 520px);
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.slide{
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    display: none;
+    position: relative;
+    justify-content: center;
+}
+
+.slide.active{
+    display: flex;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/*========================================
+Estilos contenido slider
+==========================================*/
+.contenido-slider{
+    position: absolute;
+    top: 60px;
+    width: 600px;
+    text-align: center;
+}
+
+.contenido-slider .logo{
+    margin-bottom: 20px;
+}
+
+.contenido-slider .logo img{
+    width: 200px;
+}
+
+.contenido-slider .slider-texto{
+    color: #6a86a2;
+    font-size: 16px;
+}
+
+/* Animacion slide */
+.fade{
+    animation: fade 1.5s ease-in-out;
+    -webkit-animation: fade 1.5s ease-in-out;
+}
+
+@-webkit-keyframes fade{
+    from{
+        opacity: 0.4;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes fade{
+    from{
+        opacity: 0.4;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+/* botones next y prev */
+.prev,
+.next{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    background: var(--color-celeste);
+    margin-top: -22px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    transition:all .6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    outline: 0;
+}
+
+.next{
+    right: 0;
+    border-radius: 3px 0px 0px 3px;
+}
+
+.prev:hover,
+.next:hover{
+    background: var(--color-negro);
+}
+
+/* puntos */
+.dots{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 10px;
+}
+
+.dots .dot{
+    outline: 0;
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    margin: 0 2px;
+    border: 1px solid var(--color-celeste);
+    border-radius: 4px;
+    display: inline-block;
+    transition: all .6s ease-in-out;
+}
+
+.dots .dot.active{
+    background: var(--color-celeste);
+    width: 30px;
+}
+
+/*========================================
+Estilos contenedor formularios
+==========================================*/
+.contenedor-texto{
+    width: 520px;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    background: #fff;
+}
+
+.contenedor-form{
+    width: 100%;
+    padding: 100px 50px 50px 50px;
+}
+
+.contenedor-form .titulo{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--color-negro);
+}
+
+.contenedor-form .descripcion{
+    font-size: 15px;
+    color: var(--color-texto);
+}
+
+/*========================================
+Estilos Tabs
+==========================================*/
+.tabs-links{
+    margin-top: 70px;
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #f2f2f2;
+    padding-bottom: 10px;
+}
+
+.tabs-links .tab-link{
+    font-size: 15px;
+    margin-right: 30px;
+    color: var(--color-texto);
+    cursor: pointer;
+    position: relative;
+}
+
+.tabs-links .tab-link.active{
+    color: var(--color-celeste);
+    font-weight: 700;
+}
+
+.tabs-links .tab-link.active::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--color-celeste);
+    left: 0;
+    bottom: -10px;
+}
+
+/*========================================
+Estilos Formularios
+==========================================*/
+.formulario{
+    display: none;
+    margin-top: 30px;
+}
+
+.formulario.active{
+    display: block;
+}
+
+.formulario .input-text{
+    padding: 14px 20px;
+    border: 1px solid transparent;
+    background: var(--color-input);
+    margin-bottom: 20px;
+    border-radius: 3px;
+    width: 100%;
+    outline: 0;
+    font-size: 14px;
+    color: var(--color-texto);
+}
+
+.formulario .grupo-input{
+    display: flex;
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.formulario .grupo-input .input-text{
+    padding-right: 60px;
+    margin-bottom: 0px;
+}
+
+.formulario .grupo-input .icono{
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    background: none;
+    font-size: 18px;
+    color: var(--color-texto);
+    right: 0;
+    outline: 0;
+}
+
+.formulario .grupo-input .icono.active{
+    color: var(--color-celeste);
+}
+
+.formulario .input-text:focus{
+    border: 1px solid green;
+}
+
+.link{
+    font-size: 14px;
+    color: var(--color-celeste);
+}
+
+.link:hover{
+    text-decoration: underline;
+}
+
+.formulario .btn{
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: var(--color-celeste);
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    margin-top: 30px;
+    outline: 0;
+    cursor: pointer;
+    display: block;
+}
+.formulario .btn:hover{
+    background: #3285dd;
+}
+
+/*========================================
+Estilos Checkbox Personalizados
+==========================================*/
+.contenedor-cbx{
+    display: inline-block;
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--color-texto);
+    user-select: none;
+}
+
+
+
+.contenedor-cbx input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.contenedor-cbx .cbx-marca{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: transparent;
+    border:1px solid var(--color-texto);
+    border-radius: 2px;
+    transition: all .8s ease;
+}
+
+.contenedor-cbx:hover input ~ .cbx-marca{
+    border: 1px solid var(--color-celeste);
+}
+
+.contenedor-cbx .cbx-marca::after{
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f00c';
+    font-size: 13px;
+    position: absolute;
+    display: none;
+    left: 3px;
+    top: 3px;
+    color: #fff;
+}
+
+.contenedor-cbx input:checked ~ .cbx-marca::after{
+    display: block;
+}
+
+
+.contenedor-cbx input:checked ~ .cbx-marca{
+    background: var(--color-celeste) !important;
+    border: 1px solid var(--color-celeste) !important;
+}
+
+/*========================================
+Animación a los checkbox
+==========================================*/
+
+.contenedor-cbx.animate input:checked ~ .cbx-marca{
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+
+
+/*========================================
+Estilos mesajes de error
+==========================================*/
+.error-text{
+    background: var(--color-rgba-rojo);
+    border-radius: 4px;
+    padding: 8px 20px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.error-text p{
+    font-size: 13px;
+    color: var(--color-rojo);
+}
+
+
+.error-text.active{
+    display: block;
+}
+
+.cbx-error .cbx-marca{
+    -webkit-animation: cbx_error .2s ease-in-out infinite;
+    animation: cbx_error .2s ease-in-out infinite;
+    border: 1px solid var(--color-rojo);
+    
+}
+
+@keyframes cbx_error {
+   
+    0%  { 
+        -webkit-transform:rotateX(-5deg);
+        transform: rotateX(-5deg);
+    
+    }
+    50% {
+        -webkit-transform:rotateX( 0deg) scale(.8); 
+        transform: rotateX(0deg) scale(.8);
+    }
+    100%{
+        -webkit-transform:rotateX( 5deg);
+        transform: rotateX(5deg);
+    }
+}
+
+
+/*========================================
+Responsive
+==========================================*/
+/*========================================
+    @media query - pantalla movil
+==========================================*/
+
+@media screen and (max-width: 768px) {
+
+    .contenedor-login {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .contenedor-slider {
+        width: 100%;
+        height: 400px;
+        position: relative;
+    }
+
+    .contenido-slider {
+        top: 30px;
+        width: 100%;
+    }
+
+    
+
+    .dots {
+        display: none;
+    }
+
+    
+
+    .contenedor-texto{
+        width:calc(100% - 30px);
+        position: relative;
+        background: #fff;
+        box-shadow: 0px 3px 6px rgba(0,0,0,.08);
+        margin: auto;
+        margin-top: -50px;
+        border-radius: 7px;
+        margin-bottom: 40px;
+    }
+
+    .contenedor-form {
+        padding: 20px !important;
+    }
+
+    .contenedor-form .titulo {
+        font-size: 20px;
+    }
+
+    .contenedor-form .tabs-links {
+        margin-top: 40px;
+    }
+
+    
+}
+
+
+
+/*========================================
+    @media query - Tablet horizontal
+==========================================*/
+@media screen and (max-width: 812px) {
+    .contenido-slider .slider-texto {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    
+
+    .contenedor-form {
+        padding: 50px;
+    }
+
+    .prev,.next{
+        display: none;
+    }
+
+    .contenido-slider {
+        width: 100%;
+        top: 30px;
+    }
+
+    .contenido-slider .slider-texto {
+       padding: 0px 30px;
+    }
+}
